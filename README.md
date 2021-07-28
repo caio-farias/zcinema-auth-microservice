@@ -21,6 +21,7 @@ Pronto! Aplicação deve estar rodando 100% agora.
 
 * Autenticar:
     * Endpoint (POST): https://zcinema-auth-microservice.herokuapp.com/auth
+    * Authorization: 'Bearer VALOR_DO_TOKEN' 
     * Body: 
     ```
     {
