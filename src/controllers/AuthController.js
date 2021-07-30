@@ -1,7 +1,6 @@
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const { secret } = require('../auth-jwt.json')
-const api = require('../axios')
 
 module.exports= {
   async authenticate(req, res){
@@ -27,7 +26,7 @@ module.exports= {
   },
   async checkTokenPermission(req, res){
     const { token, id } = req.body
-    console.log(token, id)
+    
     if(!token)
       return res.status(401).send({ message: "Token não informado."})
     
