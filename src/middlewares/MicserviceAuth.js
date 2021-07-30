@@ -1,4 +1,4 @@
-const { secret } = require('../auth-jwt.json')
+const { secret } = require('../micserviceSecret.json')
 
 module.exports = async (req, res, next) => {
   const authHeader = req.headers.authorization
