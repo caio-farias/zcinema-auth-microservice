@@ -5,16 +5,13 @@ const api = require('../axios')
 
 module.exports= {
   async authenticate(req, res){
-    const { email, password } = req.body
-    const incomingPassword = password
+    const { user, passwordTry } = req.body
     try {
-      const result = await api.post('/microsservice-users/', { email })
-      const user = result.data.user
       const { id, password } = user
       if(!id)
         return res.status(400).json({ message: "Usuário inválido." })
       
-      const isSamePassword = await bcrypt.compare(incomingPassword, password)
+      const isSamePassword = await bcrypt.compare(passwordTry, password)
       if(!isSamePassword)
         return res.status(400).json({ message: "Senha incorreta, tente novamente." })
       
@@ -30,7 +27,7 @@ module.exports= {
   },
   async checkTokenPermission(req, res){
     const { token, id } = req.body
-
+    console.log(token, id)
     if(!token)
       return res.status(401).send({ message: "Token não informado."})
     
