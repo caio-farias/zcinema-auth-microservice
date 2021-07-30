@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const { secret } = require('../auth-jwt.json')
+const { secret } = require('../micserviceSecret.json')
 
 module.exports= {
   async authenticate(req, res){
